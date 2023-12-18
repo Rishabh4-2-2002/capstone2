@@ -5,10 +5,10 @@ import warnings
 warnings.filterwarnings("ignore")
 import cv2
 from cvzone.HandTrackingModule import HandDetector
-from mark_attendance import mark_your_attendance
-from ocr_detect import Detect_OCR
-from Object_detection import detect_objects
-from register import register_yourself
+#from mark_attendance import mark_your_attendance
+#from ocr_detect import Detect_OCR
+#from Object_detection import detect_objects
+#from register import register_yourself
 from gtts import gTTS
 import pygame
 import os
@@ -81,30 +81,30 @@ def allCodeHere():
                     if fingers1[1]==1 and fingers1[2]==0 and fingers1[3]==0 and fingers1[0]==0 and fingers1[4]==0:
                         text = "Initializing Face Recognition model"
                         text_to_speech(text, language='en')
-                        if mark_your_attendance():
-                            print("No Closed")
-                            mark_your_attendance()
-                        else:
-                            print("Yes Closed")
-                            allCodeHere()
+                        # if mark_your_attendance():
+                        #     print("No Closed")
+                        #     mark_your_attendance()
+                        # else:
+                        #     print("Yes Closed")
+                        #     allCodeHere()
                     elif fingers1[1]==1 and fingers1[2]==1 and fingers1[3]==0 and fingers1[4]==0 and fingers1[0]==0:
                         text = "Initializing OCR model"
                         text_to_speech(text, language='en')
-                        if Detect_OCR():
-                            print("No Closed")
-                            Detect_OCR()
-                        else:
-                            print("Yes Closed")
-                            allCodeHere()
+                        # if Detect_OCR():
+                        #     print("No Closed")
+                        #     Detect_OCR()
+                        # else:
+                        #     print("Yes Closed")
+                        #     allCodeHere()
                     elif fingers1[1]==1 and fingers1[2]==1 and fingers1[3]==1 and fingers1[4]==0 and fingers1[0]==0:
                         text = "Initializing Object Detection"
                         text_to_speech(text, language='en')    
-                        if detect_objects():
-                            print("No Closed")
-                            detect_objects()
-                        else:
-                            print("Yes Closed")
-                            allCodeHere()
+                        # if detect_objects():
+                        #     print("No Closed")
+                        #     detect_objects()
+                        # else:
+                        #     print("Yes Closed")
+                        #     allCodeHere()
                 elif handType1=='Left':
                     if fingers1[0]==1 and fingers1[1]==1 and fingers1[2]==0 and fingers1[3]==0 and fingers1[4]==0:
                         # cap.release()
@@ -144,7 +144,7 @@ def faceRegister():
         user_name = request.form.get('uName')
         print("user_name: ",user_name)
 
-        register_yourself(user_name)
+        # register_yourself(user_name)
 
         
         return render_template('services.html')
