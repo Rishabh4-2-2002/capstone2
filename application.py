@@ -1,17 +1,17 @@
 # from dataclasses import replace
 from flask import *
 from werkzeug.utils import secure_filename
-import warnings
-warnings.filterwarnings("ignore")
-import cv2
-from cvzone.HandTrackingModule import HandDetector
+# import warnings
+# warnings.filterwarnings("ignore")
+# import cv2
+# from cvzone.HandTrackingModule import HandDetector
 #from mark_attendance import mark_your_attendance
 #from ocr_detect import Detect_OCR
 #from Object_detection import detect_objects
 #from register import register_yourself
-from gtts import gTTS
-import pygame
-import os
+# from gtts import gTTS
+# import pygame
+# import os
 
 application = Flask(__name__)
 
