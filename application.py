@@ -13,17 +13,9 @@ from gtts import gTTS
 import pygame
 import os
 
-app = Flask(__name__)
+application = Flask(__name__)
 
-UPLOAD_FOLDER = 'static/uploads'
-ALLOWED_EXTENSIONS = set(['jpeg', 'jpg', 'png', 'gif'])
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.secret_key = 'random string'
 
-print("[info] Model loading....")
-# test_model = load_model("birdClassify37.hp5")
-image_size=224
-print("model loaded successfully!!")
 
 def text_to_speech(text, language='en', filename='output.mp3'):
     tts = gTTS(text=text, lang=language, slow=False)
@@ -123,7 +115,7 @@ def allCodeHere():
     cap.release()
     cv2.destroyAllWindows() 
 
-@app.route("/recording", methods = ['POST', 'GET'])
+@application.route("/recording", methods = ['POST', 'GET'])
 def recording():
     if request.method == 'POST':
         print("POST")
@@ -137,7 +129,7 @@ def recording():
     return render_template('services.html')
 
 
-@app.route("/faceRegister", methods = ['POST', 'GET'])
+@application.route("/faceRegister", methods = ['POST', 'GET'])
 def faceRegister():
     if request.method == 'POST':
         print("POST")
@@ -152,25 +144,25 @@ def faceRegister():
 ##########################################################################################################
 #                                               about
 ##########################################################################################################
-@app.route("/about", methods = ['POST', 'GET'])
+@application.route("/about", methods = ['POST', 'GET'])
 def about():
     username=session.get('uname')
     return render_template('about.html')
 ##########################################################################################################
 #                                               contact
 ##########################################################################################################
-@app.route("/contact", methods = ['POST', 'GET'])
+@application.route("/contact", methods = ['POST', 'GET'])
 def contact():
     username=session.get('uname')
     return render_template('contact.html',firstName=username)
 #########################################################################################################
 #                                       Home page
 #########################################################################################################
-@app.route("/")
+@application.route("/")
 def root():
     return render_template('index.html')
 
 
 
 if __name__=='__main__':
-    app.run(host='0.0.0.0', port=8000)
+    application.run(host='0.0.0.0', port=8000)
